@@ -22,12 +22,17 @@ alias ~='cd ~'
 alias ..='cd ../'
 alias cp='cp -iv'
 alias diff='colordiff'
-alias grep='grep --colour=auto'
+alias grep='grep --color=auto'
 alias whereami='realpath .'
-alias ls='ls -G -Flh --color=auto'
-alias ll='ls -G -FlhA --color=auto'
+alias ls='ls -Flh -G'
+alias ll='ls -FlhA -G'
 alias mkdir='mkdir -pv'
 alias mv='mv -iv'
+
+if [[ `uname` == 'Linux' ]]; then
+    alias ls='ls -Flh --color=auto'
+    alias ll='ls -FlhA --color=auto'
+fi
 
 # Networking commands --------------------------------------------------------#
 
