@@ -14,6 +14,13 @@ source ~/.shellrc
 
 # Completion -----------------------------------------------------------------#
 
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+autoload -U compinit
+compinit
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Prompt ---------------------------------------------------------------------#
 
 function powerline_precmd() {
