@@ -5,10 +5,12 @@ tap "homebrew/core"
 
 brew "bash"
 brew "calc"
+brew "coreutils"
 brew "node"
 brew "p7zip"
 brew "python"
 brew "tmux"
+brew "wget"
 brew "zsh"
 brew "zsh-completions"
 
