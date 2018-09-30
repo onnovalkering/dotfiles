@@ -28,22 +28,10 @@ fi
 
 # Prompt ---------------------------------------------------------------------#
 
-# Set variable identifying the chroot you work in.
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
-
-# Set a fancy prompt (non-color, unless we know we "want" color).
-case "$TERM" in
-    xterm-color|*-256color) 
-        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ ' ;;
-    *)
-        PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ ' ;;
-esac
-
-# If this is an xterm set the title to user@host:dir.
-case "$TERM" in
-    xterm*|rxvt*)
-        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1" ;;
-    *) ;;
-esac
