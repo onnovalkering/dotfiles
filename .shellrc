@@ -1,0 +1,18 @@
+# Set history settings.
+HISTFILE=~/.shell_history
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# Set localization settings.
+export LANG="en_US"
+export LC_ALL=$LANG.UTF-8
+
+# Load alias definitions.
+if [ -f ~/.shell_aliases ]; then
+    . ~/.shell_aliases
+fi
+
+# Load function definitions.
+if [ -f ~/.shell_functions ]; then
+    . ~/.shell_functions
+fi

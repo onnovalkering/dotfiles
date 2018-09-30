@@ -6,33 +6,18 @@ case $- in
       *) return ;;
 esac
 
-# Basics ---------------------------------------------------------------------#
+# Common ---------------------------------------------------------------------#
 
-# Set history settings.
-HISTCONTROL=ignoreboth
-HISTSIZE=1000
-HISTFILESIZE=2000
+source ~/.shellrc
 
-# Set shell settings.
+# Config ---------------------------------------------------------------------#
+
 shopt -s histappend
 shopt -s checkwinsize
 shopt -s globstar
 
-# Set localization settings.
-export LANG="en_US"
-export LC_ALL=$LANG.UTF-8
+# Completion -----------------------------------------------------------------#
 
-# Load alias definitions.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# Load function definitions.
-if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
-fi
-
-# Enable programmable completion features.
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
