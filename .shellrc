@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Set history settings.
 HISTFILE=~/.shell_history
 HISTSIZE=1000
