@@ -4,7 +4,10 @@
 	signingkey = 0AB0702917844419
 [core]
 	excludesfile = ~/.gitignore
+	editor = nano
 [commit]
 	gpgsign = true
 [pull]
 	rebase = true
+[status]
+	short = true
