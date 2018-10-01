@@ -12,30 +12,27 @@ source ~/.shellrc
 
 # Config ---------------------------------------------------------------------#
 
-# Completion -----------------------------------------------------------------#
+setopt autocd
+setopt correct
+setopt extendedglob
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+# Plugins --------------------------------------------------------------------#
 
-autoload -U compinit
-compinit
+source /usr/local/share/antigen/antigen.zsh
 
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+antigen bundle zdharma/fast-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+
+antigen apply
 
 # Prompt ---------------------------------------------------------------------#
 
-function powerline_precmd() {
-    PS1="$(powerline-shell --shell zsh $?)"
-}
+autoload -U promptinit
+promptinit
+prompt adam1
 
-function install_powerline_precmd() {
-  for s in "${precmd_functions[@]}"; do
-    if [ "$s" = "powerline_precmd" ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
-}
-
-if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-fi
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'

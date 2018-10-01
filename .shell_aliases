@@ -34,9 +34,14 @@ if [[ `uname` == 'Linux' ]]; then
     alias ll='ls -FlhA --color=auto'
 fi
 
+if [[ `uname` == 'Darwin' ]]; then
+    alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+fi
+
 # Networking commands --------------------------------------------------------#
 
 alias fping='ping -c 100 -i .1'
+alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias ping='ping -c 5'
 alias wget='wget -c'
 
