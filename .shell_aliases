@@ -1,7 +1,13 @@
 #!/usr/bin/env sh
 
+if [[ `uname` == 'Darwin' ]]; then
+    PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+    PATH=/usr/local/opt/gnu-tar/libexec/gnubin:$PATH
+fi
+
 # Docker commands ------------------------------------------------------------#
 
+alias drk='docker kill $(docker ps -a -q)'
 alias drm='docker rm $(docker ps -a -q)'
 alias drmi='docker rmi $(docker images -q)'
 
@@ -24,19 +30,10 @@ alias cp='cp -iv'
 alias diff='colordiff'
 alias grep='grep --color=auto'
 alias whereami='realpath .'
-alias ls='ls -Flh -G'
-alias ll='ls -FlhA -G'
+alias ls='ls -Flh --color=auto'
+alias ll='ls -FlhA --color=auto'
 alias mkdir='mkdir -pv'
 alias mv='mv -iv'
-
-if [[ `uname` == 'Linux' ]]; then
-    alias ls='ls -Flh --color=auto'
-    alias ll='ls -FlhA --color=auto'
-fi
-
-if [[ `uname` == 'Darwin' ]]; then
-    alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
-fi
 
 # Networking commands --------------------------------------------------------#
 
