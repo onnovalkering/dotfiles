@@ -1,0 +1,22 @@
+{
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 14,
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 4,
+    "window.zoomLevel": 0,
+    "workbench.startupEditor": "newUntitledFile",
+
+    "metals.javaHome": "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home",
+    
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    }
+}
