@@ -11,17 +11,6 @@ alias drk='docker kill $(docker ps -a -q)'
 alias drm='docker rm $(docker ps -a -q)'
 alias drmi='docker rmi $(docker images -q)'
 
-# Git commands ---------------------------------------------------------------#
-
-alias ga='git add'
-alias gb='git checkout'
-alias gc='git commit'
-alias gd='git diff'
-alias gl='git ls-files'
-alias go='git push origin'
-alias gp='git pull'
-alias gs='git status'
-
 # Files commands -------------------------------------------------------------#
 
 alias ~='cd ~'
@@ -34,6 +23,36 @@ alias ls='ls -Flh --color=auto'
 alias ll='ls -FlhA --color=auto'
 alias mkdir='mkdir -pv'
 alias mv='mv -iv'
+
+# Git commands ---------------------------------------------------------------#
+
+alias ga='git add'
+alias gb='git checkout'
+alias gc='git commit'
+alias gd='git diff'
+alias gl='git ls-files'
+alias go='git push origin'
+alias gp='git pull'
+alias gs='git status'
+
+# Git commands ---------------------------------------------------------------#
+
+alias k='kubectl'
+alias kc='kubectl create'
+alias kctx='kubectl config current-context'
+alias kd='kubectl describe'
+alias kdpo='kubectl delete po -o wide'
+alias kdrs='kubectl delete rs'
+alias kdsvc='kubectl delete svc'
+alias kl='kubectl logs'
+alias kno='kubectl get no'
+alias kns='kubectl get ns'
+alias kpo='kubectl get po'
+alias kr='kubectl run'
+alias krs='kubectl get rs'
+alias ksctx='kubectl config use-context'
+alias ksns='kubectl config set-context $(kubectl config current-context) --namespace'
+alias ksvc='kubectl get svc'
 
 # Networking commands --------------------------------------------------------#
 
