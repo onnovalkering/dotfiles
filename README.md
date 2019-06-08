@@ -2,7 +2,8 @@
 
 ### Install packages
 ```shell
-brew bundle --file=_packages/Brewfile
+cd .packages
 
-npm install -g $(cat _packages/Npmfile)
+brew bundle --file=Brewfile
+npm install -g $(cat Npmfile)
 ```
