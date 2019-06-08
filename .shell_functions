@@ -68,9 +68,8 @@ download() {
     fi
 
     case $1 in
-        manget* | *.torrent)
-            webtorrent -q download $1
-            echo 'Torrent downloaded!'
+        magnet* | *.torrent)
+            webtorrent download $1
             ;;
         http*)
             wget -q $1
