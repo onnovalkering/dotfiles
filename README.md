@@ -4,7 +4,7 @@
 ```shell
 cd .packages
 
-brew bundle --file=Brewfile
-npm install -g $(cat Npmfile)
-while read e; do code --install-extension $e; done < Codefile
+brew bundle --file=brew
+npm install -g $(cat npm)
+for e in `cat code`; do code --install-extension $e; done
 ```
