@@ -18,3 +18,8 @@ fi
 if [ -f ~/.shell_functions ]; then
     . ~/.shell_functions
 fi
+
+# Load containerized definitions.
+if [ -f ~/.shell_containerized ]; then
+    . ~/.shell_containerized
+fi
