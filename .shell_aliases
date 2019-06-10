@@ -10,9 +10,10 @@ fi
 
 # Docker commands ------------------------------------------------------------#
 
-alias drk='docker kill $(docker ps -a -q)'
-alias drm='docker rm $(docker ps -a -q)'
-alias drmi='docker rmi $(docker images -q)'
+alias d='docker'
+alias dk='docker kill'
+alias sd='sudo docker'
+alias sdk='docker kill'
 
 # Files commands -------------------------------------------------------------#
 
@@ -30,7 +31,7 @@ alias mv='mv -iv'
 # Git commands ---------------------------------------------------------------#
 
 alias ga='git add'
-alias gb='git checkout'
+alias gb='git branch'
 alias gc='git commit'
 alias gd='git diff'
 alias gl='git ls-files'
