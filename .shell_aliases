@@ -18,9 +18,11 @@ alias sdk='docker kill'
 # Files commands -------------------------------------------------------------#
 
 alias ~='cd ~'
-alias ..='cd ../'
+alias ..='cd ..'
 alias cp='cp -iv'
 alias diff='colordiff'
+alias gh='cd ~/Repositories/GitHub'
+alias gl='cd ~/Repositories/GitLab'
 alias grep='grep --color=auto'
 alias whereami='realpath .'
 alias ls='ls -Flh --color=auto'
