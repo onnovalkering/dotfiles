@@ -23,3 +23,6 @@ fi
 if [ -f ~/.shell_containerized ]; then
     . ~/.shell_containerized
 fi
+
+# Add to PATH
+export PATH="$HOME/.cargo/bin:$PATH"
