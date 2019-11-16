@@ -8,6 +8,21 @@ if [[ `uname` == 'Darwin' ]]; then
     PATH=/usr/local/opt/gnu-tar/libexec/gnubin:$PATH
 fi
 
+# Basic commands --------------------------------------------------------------#
+
+alias ~='cd ~'
+alias ..='cd ..'
+alias cp='cp -iv'
+alias diff='colordiff'
+alias grep='grep --color=auto'
+alias whereami='realpath .'
+alias ls='ls -Flh --color=auto'
+alias ll='ls -FlhA --color=auto'
+alias mkdir='mkdir -pv'
+alias mv='mv -iv'
+alias path='echo -e ${PATH//:/ \\n}'
+alias sha256='openssl sha256'
+
 # Docker commands ------------------------------------------------------------#
 
 alias d='docker'
@@ -15,28 +30,16 @@ alias dcu='docker-compose up -d'
 alias dcd='docker-comppose down'
 alias dk='docker kill'
 
-# Files commands -------------------------------------------------------------#
+# Git commands ---------------------------------------------------------------#
 
-alias ~='cd ~'
-alias ..='cd ..'
-alias cp='cp -iv'
-alias diff='colordiff'
 alias gh='cd ~/Repositories/GitHub'
 alias gl='cd ~/Repositories/GitLab'
-alias grep='grep --color=auto'
-alias whereami='realpath .'
-alias ls='ls -Flh --color=auto'
-alias ll='ls -FlhA --color=auto'
-alias mkdir='mkdir -pv'
-alias mv='mv -iv'
-
-# Git commands ---------------------------------------------------------------#
 
 alias ga='git add'
 alias gb='git branch'
 alias gc='git commit'
 alias gd='git diff'
-alias gl='git ls-files'
+alias gl='git log'
 alias gm='git merge'
 alias go='git push origin'
 alias gp='git pull'
@@ -50,20 +53,22 @@ alias develop='git checkout develop'
 
 alias k='kubectl'
 alias kc='kubectl create'
-alias kctx='kubectl config current-context'
 alias kd='kubectl describe'
-alias kdpo='kubectl delete po -o wide'
-alias kdrs='kubectl delete rs'
-alias kdsvc='kubectl delete svc'
 alias kl='kubectl logs'
 alias kno='kubectl get no'
 alias kns='kubectl get ns'
+alias kns-d='kubectl delete ns'
 alias kpo='kubectl get po'
+alias kpo-d='kubectl delete po'
 alias kr='kubectl run'
 alias krs='kubectl get rs'
-alias ksctx='kubectl config use-context'
-alias ksns='kubectl config set-context $(kubectl config current-context) --namespace'
+alias krs-d='kubectl delete rs'
 alias ksvc='kubectl get svc'
+alias ksvc-d='kubectl delete svc'
+
+alias kctx='kubectl config current-context'
+alias kctx-s='kubectl config use-context'
+alias kns-s='kubectl config set-context $(kubectl config current-context) --namespace'
 
 # Networking commands --------------------------------------------------------#
 
@@ -74,5 +79,4 @@ alias wget='wget -c'
 
 # System commands ------------------------------------------------------------#
 
-alias path='echo -e ${PATH//:/ \\n}'
-alias sha1='openssl sha1'
+
