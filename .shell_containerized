@@ -1,7 +1,3 @@
 #!/usr/bin/env sh
 
 alias redis-cli='docker run --rm -it --network host redis:alpine redis-cli'
-
-alias cargo-musl='docker run --rm -it -v "$(pwd)":/home/rust/src ekidd/rust-musl-builder cargo'
-
-alias sregistry='docker run --privileged vanessa/sregistry-cli'
