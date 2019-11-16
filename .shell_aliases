@@ -76,7 +76,3 @@ alias fping='ping -c 100 -i .1'
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias ping='ping -c 5'
 alias wget='wget -c'
-
-# System commands ------------------------------------------------------------#
-
-
