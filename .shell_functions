@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
-compress() {
+function compress() {
     if [ $# -eq 0 ]; then
-        echo -e "No arguments specified.";
+        echo -e "Not enough arguments specified.";
         return 1;
     fi
 
@@ -18,9 +18,29 @@ compress() {
     fi
 }
 
-extract () {
+function download() {
+    if [ $# -eq 0 ]; then 
+        echo -e "Not enough arguments specified.";
+        return 1; 
+    fi
+
+    case $1 in
+        magnet* | *.torrent)
+            webtorrent download $1
+            ;;
+        http*)
+            wget -q $1
+            echo "Downloaded $(basename $1)"
+            ;;
+        *) 
+            echo "'$1' cannot be downloaded." 
+            ;;
+    esac
+}
+
+function extract() {
     if [ $# -eq 0 ]; then
-        echo -e "No arguments specified.";
+        echo -e "Not enough arguments specified.";
         return 1;
     fi
 
@@ -42,9 +62,9 @@ extract () {
     fi
 }
 
-upload() { 
+function upload() { 
     if [ $# -eq 0 ]; then 
-        echo -e "No arguments specified."; 
+        echo -e "Not enough arguments specified."; 
         return 1; 
     fi
 
@@ -61,22 +81,16 @@ upload() {
     echo ""
 }
 
-download() {
-    if [ $# -eq 0 ]; then 
-        echo -e "No arguments specified."; 
+function send() {
+    if [ $# -lt 2 ]; then 
+        echo -e "Not enough arguments specified."; 
         return 1; 
     fi
 
-    case $1 in
-        magnet* | *.torrent)
-            webtorrent download $1
-            ;;
-        http*)
-            wget -q $1
-            echo "Downloaded $(basename $1)"
-            ;;
-        *) 
-            echo "'$1' cannot be downloaded." 
-            ;;
-    esac
+    target=$3
+    if [ -z "${target}" ]; then
+        target="~/"
+    fi
+
+    scp -rp $2 "$1:$target"
 }
