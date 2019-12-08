@@ -1,13 +1,16 @@
 #!/usr/bin/env sh
 
 # Set history settings.
-HISTFILE=~/.shell_history
-HISTSIZE=1000
-HISTFILESIZE=2000
+export HISTFILE=~/.shell_history
+export HISTSIZE=1000
+export HISTFILESIZE=2000
 
 # Set localization settings.
 export LANG="en_US"
 export LC_ALL=$LANG.UTF-8
+
+# Set miscellaneous variables.
+export GPG_TTY=$(tty)
 
 # Load alias definitions.
 if [ -f ~/.shell_aliases ]; then
@@ -24,6 +27,15 @@ if [ -f ~/.shell_containerized ]; then
     . ~/.shell_containerized
 fi
 
-# Miscellaneous exports
-export GPG_TTY=$(tty)
-export PATH="$HOME/.cargo/bin:$PATH"
+# Expand PATH
+PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/.cargo/bin:$PATH"
+
+# Only for macOS
+if [[ `uname` == 'Darwin' ]]; then
+    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+    PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+    PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+    PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+fi

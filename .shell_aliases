@@ -1,20 +1,12 @@
 #!/usr/bin/env sh
 
-if [[ `uname` == 'Darwin' ]]; then
-    PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-    PATH=/usr/local/opt/findutils/libexec/gnubin:$PATH
-    PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
-    PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
-    PATH=/usr/local/opt/gnu-tar/libexec/gnubin:$PATH
-fi
-
 # Basic commands --------------------------------------------------------------#
 
 alias ~='cd ~'
 alias ..='cd ..'
 alias cp='cp -iv'
 alias diff='colordiff'
-alias grep='grep --color=auto'
+alias grep='grep -n --color=auto'
 alias whereami='realpath .'
 alias ls='ls -Flh --color=auto'
 alias ll='ls -FlhA --color=auto'
