@@ -15,6 +15,13 @@ alias mv='mv -iv'
 alias path='echo -e ${PATH//:/ \\n}'
 alias sha256='openssl sha256'
 
+# Cargo commands -------------------------------------------------------------#
+
+alias c='cargo'
+alias cb='cargo build'
+alias cr='cargo run'
+alias ct='cargo test'
+
 # Docker commands ------------------------------------------------------------#
 
 alias d='docker'
@@ -45,6 +52,8 @@ alias develop='git checkout develop'
 alias k='kubectl'
 alias kc='kubectl create'
 alias kd='kubectl describe'
+alias kjo='kubectl get jobs'
+alias kjo-d='kubectl delete job'
 alias kl='kubectl logs'
 alias kno='kubectl get no'
 alias kns='kubectl get ns'
