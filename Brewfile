@@ -39,7 +39,7 @@ brew "sbt"
 brew "speedtest-cli"
 brew "sqlite"
 brew "tmux"
-brew "unrar
+brew "unrar"
 brew "wakeonlan"
 brew "watch"
 brew "webtorrent-cli"
