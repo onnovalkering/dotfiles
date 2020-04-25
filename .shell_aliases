@@ -13,6 +13,7 @@ alias ll='ls -FlhA --color=auto'
 alias mkdir='mkdir -pv'
 alias mv='mv -iv'
 alias path='echo -e ${PATH//:/ \\n}'
+alias sha1='openssl sha1'
 alias sha256='openssl sha256'
 
 # Cargo commands -------------------------------------------------------------#
@@ -29,7 +30,7 @@ alias ct='cargo test'
 alias d='docker'
 alias db='docker build'
 alias dc-u='docker-compose up -d'
-alias dc-d='docker-comppose down'
+alias dc-d='docker-compose down'
 alias dr='docker run --rm'
 
 # Git commands ---------------------------------------------------------------#
@@ -70,6 +71,8 @@ alias kpo-d='kubectl delete po'
 alias kr='kubectl run'
 alias krs='kubectl get rs'
 alias krs-d='kubectl delete rs'
+alias kse='kubectl get secrets'
+alias kse-d='kubectl delete secrets'
 alias ksvc='kubectl get svc'
 alias ksvc-d='kubectl delete svc'
 

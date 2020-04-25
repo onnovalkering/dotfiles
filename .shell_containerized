@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-alias redis-cli='docker run --rm -it --network host redis:alpine redis-cli'
-
-alias lofar-proxy-init='docker run --rm -it -u "$(id -u):$(id -g)" -v ~/.globus:/globus onnovalkering/lofar-proxy-init'

@@ -41,9 +41,18 @@ case "$TERM" in
         PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ ' ;;
 esac
 
-# If this is an xterm set the title to user@host:dir.
+# If this is an xterm, put user@host:dir in the title.
 case "$TERM" in
     xterm*|rxvt*)
         PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1" ;;
     *) ;;
 esac
+
+# Enable programmable completion features.
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
