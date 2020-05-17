@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 RUN apt-get update && apt-get install -y \
         gnupg2 \
@@ -16,8 +16,9 @@ RUN apt-get update && apt-get install -y \
 RUN echo '"lofar" "voms.grid.sara.nl" "30019" "/O=dutchgrid/O=hosts/OU=sara.nl/CN=voms.grid.sara.nl" "lofar"' > /var/local/lofar.vo
 RUN echo '/O=dutchgrid/O=hosts/OU=sara.nl/CN=voms.grid.sara.nl\n/C=NL/O=NIKHEF/CN=NIKHEF medium-security certification auth' > /var/local/voms.grid.sara.nl.lsc
 
-RUN fetch-crl \
- && mkdir /wd \
+# RUN fetch-crl 
+
+RUN mkdir /wd \
  && mkdir -p /etc/grid-security/vomsdir/lofar \
  && mv /var/local/voms.grid.sara.nl.lsc /etc/grid-security/vomsdir/lofar \
  && mkdir -p /etc/vomses \
