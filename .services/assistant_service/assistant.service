@@ -1,0 +1,12 @@
+[Unit]
+Description=Assistant service
+
+[Service]
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 /usr/local/lib/assistant_service/assistant.py
+Restart=on-failure
+Type=notify
+User=onno
+
+[Install]
+WantedBy=default.target
