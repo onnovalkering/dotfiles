@@ -55,6 +55,7 @@ function extract() {
             *.tgz)      tar xzf $1 ;;
             *.zip)      unzip $1 ;;
             *.7z)       7z x $1 ;;
+            *.xz)       unxz $1 ;;
             *) echo "'$1' cannot be extracted." ;;
         esac
     else
@@ -74,13 +75,4 @@ function send() {
     fi
 
     scp -rp $2 "$1:$target"
-}
-
-function burn() {
-    if [ $# -lt 2 ]; then 
-        echo -e "Not enough arguments specified."; 
-        return 1; 
-    fi
-    
-    dd bs=4M if=$1 of=$2 conv=fsync status=progress
 }
