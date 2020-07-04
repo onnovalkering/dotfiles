@@ -2,12 +2,13 @@
 Description=Load encryption keys
 DefaultDependencies=false
 Before=zfs-mount.service
-After=zfs-import.target
+After=zfs-import.target network-online.target
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/sbin/zfs load-key -a
+TimeoutSec=90
 
 [Install]
 WantedBy=zfs-mount.service
