@@ -15,8 +15,8 @@ app = Flask(__name__)
 def backup():
     def task(address, hostname):
         send_magic_packet(address)
-        sleep(30)
-        remote_command(hostname, "~/.backup/run.sh")
+        sleep(120)
+        remote_command(hostname, ".backup/run.sh")
 
     address = request.form["address"]
     hostname = request.form["hostname"]
