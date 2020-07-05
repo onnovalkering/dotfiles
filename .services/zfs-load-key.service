@@ -1,14 +1,15 @@
 [Unit]
-Description=Load encryption keys
-DefaultDependencies=false
-Before=zfs-mount.service
-After=zfs-import.target network-online.target
+Description=Load ZFS keys
+DefaultDependencies=no
+After=network-online.target zfs-import.target
+Wants=network-online.target
 
 [Service]
-Type=oneshot
+ExecStart=/usr/bin/bash -c 'for d in /zpool/*; do ssh caradoc cat ~/.secrets/zpool-key | sudo zfs load-key -L prompt ${d:1}; done; sudo zfs mount -a'
 RemainAfterExit=yes
-ExecStart=/usr/sbin/zfs load-key -a
-TimeoutSec=90
+TimeoutSec=30
+Type=oneshot
+User=onno
 
 [Install]
-WantedBy=zfs-mount.service
+WantedBy=default.target
