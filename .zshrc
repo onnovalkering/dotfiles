@@ -22,9 +22,9 @@ setopt hist_ignore_space
 
 source /usr/local/share/antigen/antigen.zsh
 
-antigen bundle zdharma/fast-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
 
