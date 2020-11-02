@@ -62,17 +62,3 @@ function extract() {
         echo "'$1' is not a valid file."
     fi
 }
-
-function send() {
-    if [ $# -lt 2 ]; then 
-        echo -e "Not enough arguments specified."; 
-        return 1; 
-    fi
-
-    target=$3
-    if [ -z "${target}" ]; then
-        target="~/"
-    fi
-
-    scp -rp $2 "$1:$target"
-}

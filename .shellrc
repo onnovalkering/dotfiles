@@ -45,5 +45,4 @@ if [[ `uname` == 'Darwin' ]]; then
     PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
     PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
     PATH="/usr/local/opt/sqlite/bin:$PATH"
-    PATH="/usr/local/opt/openjdk@11/bin:$PATH"    
 fi
