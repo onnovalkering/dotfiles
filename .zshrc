@@ -18,16 +18,6 @@ setopt extendedglob
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 
-# Plugins --------------------------------------------------------------------#
-
-source /usr/local/share/antigen/antigen.zsh
-
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-antigen apply
-
 # Prompt ---------------------------------------------------------------------#
 
 autoload -U promptinit
