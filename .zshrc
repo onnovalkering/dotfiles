@@ -18,6 +18,11 @@ setopt extendedglob
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 
+# Plugins --------------------------------------------------------------------#
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Prompt ---------------------------------------------------------------------#
 
 autoload -U promptinit
