@@ -12,9 +12,10 @@ source ~/.shellrc
 
 # Config ---------------------------------------------------------------------#
 
-shopt -s histappend
 shopt -s checkwinsize
+shopt -s extdebug
 shopt -s globstar
+shopt -s histappend
 
 # Completion -----------------------------------------------------------------#
 
@@ -56,3 +57,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Enable hooks
+export HOOKS_ENABLED=1

@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+IS_DOCKER_RUN='^docker\s+run'
+IS_DOCKER_EXPOSE_PORT='\s+-[pP]\s+'
+
+function firewall_hook() {
+    [ $FIREWALL_INSTALLED ] && return
+
+    serviceName="ufw.service"
+    if ! systemctl --all --type service | grep -q "$serviceName"; then
+        echo "The $serviceName does NOT exist. Please install ufw."
+    else
+        export FIREWALL_INSTALLED=1
+    fi
+
+    return 0
+}
+
+function docker_hook() {
+    [[ $BASH_COMMAND != docker* ]] && return
+
+    # Check if it's a run command that publishes ports.
+    ! [[ $BASH_COMMAND =~ $IS_DOCKER_RUN ]] && return
+    ! [[ $BASH_COMMAND =~ $IS_DOCKER_EXPOSE_PORT ]] && return
+
+    read -p "You're about to publish ports to the host. Are you sure? (y|n) " -n 1 -r
+    if [[ $REPLY =~ ^[Nn]$ ]];
+    then
+        echo ""
+        return 1
+    else
+        ceol=$(tput el)
+        echo -ne "\r${ceol}"
+        return 0
+    fi
+}
+
+function before_command() {
+    # Do nothing if hooks are not enabled.
+    [ ! $HOOKS_ENABLED ] && return
+    # Do nothing if this is part of auto completion.
+	[ -n "$COMP_LINE" ] && return
+    # Do nothing if this is part of the regular prompt.
+	[ "$BASH_COMMAND" = "$PROMPT_COMMAND" ] && return
+
+    ! firewall_hook && return 1
+    ! docker_hook && return 1
+    
+    return 0
+}
+
+trap before_command DEBUG
