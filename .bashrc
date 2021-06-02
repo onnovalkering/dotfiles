@@ -58,5 +58,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Enable hooks
+# Enable hooks (must be last).
 export HOOKS_ENABLED=1

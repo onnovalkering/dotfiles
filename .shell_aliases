@@ -4,13 +4,13 @@
 
 alias ~='cd ~'
 alias ..='cd ..'
-alias cp='cp -iv'
+alias cp='cp --interactive --verbose' 
 alias diff='colordiff'
-alias grep='grep -na --color=auto'
-alias ls='ls -Flh --color=auto'
-alias ll='ls -FlhA --color=auto'
-alias mkdir='mkdir -pv'
-alias mv='mv -iv'
+alias grep='grep --line-number --text --color=auto'
+alias ls='ls -l --classify --human-readable --color=auto'
+alias la='ls -l --classify --human-readable --color=auto --almost-all'
+alias mkdir='mkdir --parents --verbose'
+alias mv='mv --interactive --verbose'
 alias path='echo -e ${PATH//:/ \\n}'
 alias sha1='openssl sha1'
 alias sha256='openssl sha256'
@@ -22,14 +22,16 @@ alias cb='cargo build'
 alias ch='cargo check'
 alias cr='cargo run'
 alias ct='cargo test'
+alias cu='cargo update'
+alias cy='cargo clippy'
 
 # Docker commands ------------------------------------------------------------#
 
 alias d='docker'
 alias db='docker build'
-alias dc-u='docker-compose up -d'
 alias dc-d='docker-compose down'
-alias dr='docker run --rm -it'
+alias dc-u='docker-compose up --detach'
+alias dr='docker run --rm --interactive --tty'
 
 # Git commands ---------------------------------------------------------------#
 
@@ -43,6 +45,7 @@ alias gm='git merge'
 alias gu='git push origin'
 alias gp='git pull'
 alias gt='git tag'
+alias gt-d='git tag --delete'
 alias gs='git status'
 
 alias master='git checkout master'

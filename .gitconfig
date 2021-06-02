@@ -1,6 +1,6 @@
 [core]
   excludesfile = ~/.gitignore
-  editor = nano
+  editor = nvim
 
 [commit]
   gpgsign = true

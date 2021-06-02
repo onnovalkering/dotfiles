@@ -3,7 +3,8 @@ IS_DOCKER_RUN='^docker\s+run'
 IS_DOCKER_EXPOSE_PORT='\s+-[pP]\s+'
 
 function firewall_hook() {
-    [ $FIREWALL_INSTALLED ] && return
+    # Skip, if we already observed that ufw is installed.
+    [ $FIREWALL_INSTALLED -eq 1 ] && return
 
     serviceName="ufw.service"
     if ! systemctl --all --type service | grep -q "$serviceName"; then
@@ -16,6 +17,7 @@ function firewall_hook() {
 }
 
 function docker_hook() {
+    # Skip, if not a Docker command.
     [[ $BASH_COMMAND != docker* ]] && return
 
     # Check if it's a run command that publishes ports.
@@ -36,11 +38,12 @@ function docker_hook() {
 
 function before_command() {
     # Do nothing if hooks are not enabled.
-    [ ! $HOOKS_ENABLED ] && return
+    [ $HOOKS_ENABLED -eq 0 ] && return
+
     # Do nothing if this is part of auto completion.
-	[ -n "$COMP_LINE" ] && return
+    [ -n "$COMP_LINE" ] && return
     # Do nothing if this is part of the regular prompt.
-	[ "$BASH_COMMAND" = "$PROMPT_COMMAND" ] && return
+    [ "$BASH_COMMAND" = "$PROMPT_COMMAND" ] && return
 
     ! firewall_hook && return 1
     ! docker_hook && return 1
@@ -48,4 +51,5 @@ function before_command() {
     return 0
 }
 
+export HOOKS_ENABLED=0
 trap before_command DEBUG

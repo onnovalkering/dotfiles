@@ -13,7 +13,7 @@ fi
 # Start with a clean slate.
 sudo ufw reset
 
-# By default, block ALL incoming and outgoing connections.
+# By default, block ALL incoming and allow ALL outgoing connections.
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 
