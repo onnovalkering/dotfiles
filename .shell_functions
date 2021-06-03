@@ -62,3 +62,12 @@ function extract() {
         echo "'$1' is not a valid file."
     fi
 }
+
+function lowercase() {
+    if [ $# -eq 0 ]; then
+        echo -e "Not enough arguments specified.";
+        return 1;
+    fi
+
+    echo "$1" | tr '[:upper:]' '[:lower:]'
+}
