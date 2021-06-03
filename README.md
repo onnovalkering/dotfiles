@@ -1,12 +1,13 @@
 # Dotfiles
-This is the configuration I use for macOS and Ubuntu.
+My `$HOME` is this git repository.
 
 ```shell
-cd $HOME
-git init
-git remote add origin git@github.com:onnovalkering/dotfiles.git
-git fetch
-git checkout --force master
+$ cd $HOME \
+  && git init \
+  && git remote add origin git@github.com:onnovalkering/dotfiles.git \
+  && git fetch \
+  && git checkout --force master \
+  && .scripts/init.sh
 ```
 
 ## Notes to self
