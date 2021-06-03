@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source $HOME/.shell_functions
+source ~/.shell_functions
 
 # Perform OS-specific initialization.
-source $HOME/.scripts/init-$(lowercase `uname`).sh
+source ~/.scripts/init-$(lowercase `uname`).sh
+
+# Install system-wide Python packages.
+if [ -f ~/requirements.txt ]; then
+    pip3 install -r ~/requirements.txt
+fi
 
 # Remove unnecessary files (locally).
-rm $HOME/LICENSE
-rm $HOME/README.md
-rm $HOME/requirements.txt
-
+rm -f ~/LICENSE ~/README.md ~/requirements.txt
 git ls-files --deleted -z | git update-index --assume-unchanged -z --stdin
