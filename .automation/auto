@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+from sys import stdout
+
+from click import argument, group, option
+from loguru import logger
+
+from configuration import Configuration
+from network import search_devices, wake_on_lan
+
+
+@group()
+@option("-d", "--debug", is_flag=True, help="Enable debug mode and logging.")
+def cli(debug):
+    if not debug:
+        logger.remove()
+        logger.add(stdout, level="INFO")
+
+
+@cli.command(help="Performs initialization of this automation tool.")
+def init():
+    config = Configuration()
+
+    devices = search_devices()
+    config.devices = devices
+
+    config.save()
+
+
+@cli.command(help="Awakens a Wake-on-LAN enabled computer.")
+@argument("target")
+def wol(target):
+    config = Configuration()
+
+    wake_on_lan(target, config)
+
+
+if __name__ == "__main__":
+    cli()

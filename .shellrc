@@ -35,6 +35,9 @@ if [ -f ~/.shell_hooks ]; then
 fi
 
 # Expand PATH.
+if [ -d "$HOME/.automation" ] ; then
+    PATH="$HOME/.automation:$PATH"
+fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi

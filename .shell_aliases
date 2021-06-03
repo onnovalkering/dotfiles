@@ -103,6 +103,6 @@ alias ksvc-d='kubectl delete svc'
 
 # Networking commands --------------------------------------------------------#
 
-alias fping='ping -c 100 -i .1'
+alias fping='ping -c 100 -i .2'
 alias ping='ping -c 5'
 alias wget='wget -c'
