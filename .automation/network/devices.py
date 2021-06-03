@@ -21,7 +21,8 @@ class NetworkDevice:
 
 
 add_constructor(
-    "tag:yaml.org,2002:python/object:network.NetworkDevice", NetworkDevice.deserialize
+    "tag:yaml.org,2002:python/object:network.devices.NetworkDevice",
+    NetworkDevice.deserialize,
 )
 
 
