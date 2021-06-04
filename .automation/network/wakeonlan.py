@@ -33,7 +33,7 @@ def lookup_hw_addr(target: str, devices: list[NetworkDevice]) -> str:
         )
 
     results = list(filter(match, devices))
-    return None if len(results) == 0 else results[0]
+    return None if len(results) == 0 else results[0].hw_addr
 
 
 def create_magic_packet(hw_addr) -> scapy.Raw:
