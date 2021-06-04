@@ -6,11 +6,15 @@ if [[ $PWD != $HOME ]]; then
     exit 1
 fi
 
+echo "[$(sdate)] – Starting macOS-specific init."
+
 # Install Homebrew.
-if [[ ! exists brew ]]; then
+if ! exists brew; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    if [[ -f Brewfile ]]; then
+        brew bundle
+    fi
 fi
 
-if [[ -f Brewfile ]]; then
-    brew bundle
-fi
+echo "[$(sdate)] – Finished macOS-specific init."

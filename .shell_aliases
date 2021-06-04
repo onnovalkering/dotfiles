@@ -14,6 +14,7 @@ alias mv='mv --interactive --verbose'
 alias path='echo -e ${PATH//:/ \\n}'
 alias sha1='openssl sha1'
 alias sha256='openssl sha256'
+alias sdate='date -Iseconds'
 
 # Cargo commands -------------------------------------------------------------#
 

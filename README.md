@@ -2,7 +2,7 @@
 My `$HOME` is this git repository.
 
 ```shell
-$ cd $HOME \
+cd $HOME \
   && git init \
   && git remote add origin git@github.com:onnovalkering/dotfiles.git \
   && git fetch \

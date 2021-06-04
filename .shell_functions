@@ -38,6 +38,19 @@ function download() {
     esac
 }
 
+function exists() {
+    if [ $# -eq 0 ]; then
+        echo -e "Not enough arguments specified.";
+        return 1;
+    fi
+
+    if ! command -v $1 &> /dev/null; then
+        return 1
+    else
+        return 0
+    fi
+}
+
 function extract() {
     if [ $# -eq 0 ]; then
         echo -e "Not enough arguments specified.";
@@ -72,15 +85,3 @@ function lowercase() {
     echo "$1" | tr '[:upper:]' '[:lower:]'
 }
 
-function exists() {
-    if [ $# -eq 0 ]; then
-        echo -e "Not enough arguments specified.";
-        return 1;
-    fi
-
-    if hash $1 2>/dev/null; then
-        exit 0
-    else
-        exit 1
-    fi
-}
