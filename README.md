@@ -1,5 +1,5 @@
 # Dotfiles
-My `$HOME` is this git repository.
+My `$HOME` is a (this) git repository.
 
 ```shell
 cd $HOME \
