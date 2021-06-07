@@ -33,9 +33,6 @@ if ! exists rustup; then
     echo "[$(sdate)] – Starting Rust init."
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash /dev/stdin -y --no-modify-path
 
-    source $HOME/.cargo/env
-    rustup component add clippy
-    rustup component add rustfmt
     echo "[$(sdate)] – Finished Rust init."
 else 
     echo "[$(sdate)] – Skipping Rust init."
