@@ -4,7 +4,7 @@ IS_DOCKER_EXPOSE_PORT='\s+-[pP]\s+'
 
 function firewall_hook() {
     # Skip, if we already observed that ufw is installed.
-    [ $FIREWALL_INSTALLED -eq 1 ] && return
+    [[ $FIREWALL_INSTALLED -eq 1 ]] && return
 
     serviceName="ufw.service"
     if ! systemctl --all --type service | grep -q "$serviceName"; then
@@ -38,7 +38,7 @@ function docker_hook() {
 
 function before_command() {
     # Do nothing if hooks are not enabled.
-    [ $HOOKS_ENABLED -eq 0 ] && return
+    [[ $HOOKS_ENABLED -eq 0 ]] && return
 
     # Do nothing if this is part of auto completion.
     [ -n "$COMP_LINE" ] && return

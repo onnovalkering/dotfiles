@@ -4,7 +4,7 @@ set -euo pipefail
 serviceName="ufw.service"
 
 # Abort if ufw is not installed.
-if ! systemctl --all --type service | grep -q "$serviceName"; then
+if systemctl status $serviceName | grep -q "not found"; then
     echo "The $serviceName does NOT exist. Please install ufw."
     exit 1
 fi
