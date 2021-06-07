@@ -4,8 +4,7 @@ My `$HOME` is a (this) git repository.
 ```shell
 cd $HOME \
   && git init \
-  && git remote add origin git@github.com:onnovalkering/dotfiles.git \
-  && git fetch \
+  && git remote add --fetch origin git@github.com:onnovalkering/dotfiles.git \
   && git checkout --force master \
   && .scripts/init.sh
 ```
